@@ -1,5 +1,5 @@
 import java.awt.*;
-import com.vayan.rss.GUI;
+import com.vayan.rss.Gui;
 
 public class Main {
 
@@ -8,9 +8,7 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                GUI gui = new GUI();
-
-                gui.setVisible(true);
+               Gui gui = new Gui();
             }
         });
     }
