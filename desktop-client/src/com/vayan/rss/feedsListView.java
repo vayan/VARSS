@@ -43,8 +43,7 @@ public class feedsListView implements TreeModel {
     public Object getChild(Object parent, int index) {
         System.out.println("getchild");
         System.out.println((parent.getClass().getName()));
-        if (parent.getClass().getName().equals("com.vayan.rss.rssItem")) return ((rssItem)parent).getName();
-        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getItem(index);
+        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getItem(index).getName();
         if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getFeed(index);
         return null;
     }
@@ -53,7 +52,6 @@ public class feedsListView implements TreeModel {
     public int getChildCount(Object parent) {
         System.out.println("getChildCount");
         System.out.println((parent.getClass().getName()));
-        if (parent.getClass().getName().equals("com.vayan.rss.rssItem")) return 1;
         if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getRssItems().size();
         if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getRssFeedList().size();
         return 0;
@@ -61,7 +59,7 @@ public class feedsListView implements TreeModel {
 
     @Override
     public boolean isLeaf(Object node) {
-        return (node instanceof com.vayan.rss.rssItem);
+        return (node instanceof String);
     }
 
     @Override
@@ -73,10 +71,9 @@ public class feedsListView implements TreeModel {
     public int getIndexOfChild(Object parent, Object child) {
         System.out.println("getIndexOfChild");
         System.out.println((parent.getClass().getName()));
-        if (parent.getClass().getName().equals("com.vayan.rss.rssItem")) return 0;
         if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getRssItems().indexOf(child);
         if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getRssFeedList().indexOf(child);
-        return 0;
+        return -1;
     }
 
     @Override
