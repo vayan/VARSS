@@ -9,71 +9,67 @@ import java.util.List;
 /**
  * Created by yann on 25/11/2014.
  */
-public class feedsListView implements TreeModel, Visitor {
+public class feedsListView implements TreeModel {
     private List<rssFeed> rssFeedList;
     private String name;
 
     public feedsListView() {
         rssFeedList = new ArrayList<rssFeed>();
-        name = "My rsss";
+        name = "My rss";
+    }
+
+    public List<rssFeed> getRssFeedList() {
+        return rssFeedList;
     }
 
     public String getName() {
         return name;
     }
 
-    @Override
-    public Object getData() {
-        return rssFeedList;
-    }
-
-    @Override
-    public Object getOneData(int index) {
-        return rssFeedList.get(index);
-    }
-
-    @Override
-    public int getSize() {
-        return rssFeedList.size();
-    }
-
-    @Override
-    public int getIndexofChild(Object o) {
-        return rssFeedList.indexOf(o);
-    }
-
     public void addFeed(rssFeed f) {
         rssFeedList.add(f);
     }
 
+    public rssFeed getFeed(int index) { return rssFeedList.get(index); }
+
+
+
     @Override
     public Object getRoot() {
-        return name;
+        return this;
     }
 
     @Override
     public Object getChild(Object parent, int index) {
-        return ((Visitor)parent).getOneData(index);
+
+        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getItem(index).getName();
+        if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getFeed(index);
+        return null;
     }
 
     @Override
     public int getChildCount(Object parent) {
-        return ((Visitor)parent).getSize();
+
+        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getRssItems().size();
+        if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getRssFeedList().size();
+        return 0;
     }
 
     @Override
     public boolean isLeaf(Object node) {
-        return (node instanceof rssItem);
+        return (node instanceof String);
     }
 
     @Override
     public void valueForPathChanged(TreePath path, Object newValue) {
-
     }
 
     @Override
     public int getIndexOfChild(Object parent, Object child) {
-        return ((Visitor)parent).getIndexofChild(child);
+
+        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getRssItems().indexOf(child);
+        if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getRssFeedList().indexOf(child);
+        return -1;
     }
 
     @Override
