@@ -37,7 +37,7 @@ public class Gui extends JFrame {
         feed1.addItem(item5);
 
         feedslist.addFeed(feed1);
-        feedslist.addFeed(feed1);
+        //feedslist.addFeed(feed1);
 
         rssTree.setModel(feedslist);
 

@@ -3,7 +3,7 @@ package com.vayan.rss;
 /**
  * Created by yann on 23/11/2014.
  */
-public class rssItem implements Visitor {
+public class rssItem {
     private String title;
     private String content;
 
@@ -15,24 +15,5 @@ public class rssItem implements Visitor {
     public String getName() {
         return title;
     }
-
-    @Override
-    public Object getData() {
-        return title;
-    }
-
-    @Override
-    public Object getOneData(int index) {
-        return title;
-    }
-
-    @Override
-    public int getSize() {
-        return 0;
-    }
-
-    @Override
-    public int getIndexofChild(Object o) {
-        return 0;
-    }
+    
 }

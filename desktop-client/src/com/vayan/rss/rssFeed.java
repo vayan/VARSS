@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by yann on 23/11/2014.
  */
-public class rssFeed implements Visitor {
+public class rssFeed {
     private String name;
     private String url;
     private List<rssItem> rssItems;
@@ -25,27 +25,12 @@ public class rssFeed implements Visitor {
         rssItems.add(it);
     }
 
+    public rssItem getItem(int index) {
+        return rssItems.get(index);
+    }
+
     public String getName() {
         return name;
     }
 
-    @Override
-    public Object getData() {
-        return rssItems;
-    }
-
-    @Override
-    public Object getOneData(int index) {
-        return rssItems.get(index);
-    }
-
-    @Override
-    public int getSize() {
-        return rssItems.size();
-    }
-
-    @Override
-    public int getIndexofChild(Object o) {
-        return rssItems.indexOf(o);
-    }
 }
