@@ -43,7 +43,7 @@ public class Gui extends JFrame {
 
         rssFeed feed2 = new rssFeed("vayan", "http://vayan.fr");
         rssItem item11 = new rssItem(" la maison", "fdgdfgdfdfga ");
-        rssItem item22 = new rssItem("la boufe", "retertrterteerter");
+        rssItem item22 = new rssItem("la boufe", "ret <strong>test</strong> ertrterteerter");
         rssItem item33 = new rssItem("la canard", "kjjkkjhjkhjhkhkjkjhkjhkjh ");
         rssItem item44 = new rssItem("la foo", "vbvbvbvbvbe ca ");
         rssItem item55 = new rssItem("la dance", "wwwwwwwwwwwe ca ");
@@ -55,8 +55,6 @@ public class Gui extends JFrame {
 
         feedslist.addFeed(feed1);
         feedslist.addFeed(feed2);
-
-
 
         ExitButton.addMouseListener(new MouseAdapter() {
             @Override
