@@ -25,7 +25,8 @@ public class Gui extends JFrame {
         setContentPane(this.MainUI);
         setVisible(true);
 
-        feedsListView feedslist = new feedsListView();
+        rssContentView contentView = new rssContentView(oneRssContent);
+        feedsListView feedslist = new feedsListView(rssTree, contentView);
 
 
         rssFeed feed1 = new rssFeed("google", "http://google.fr");
@@ -55,19 +56,6 @@ public class Gui extends JFrame {
         feedslist.addFeed(feed1);
         feedslist.addFeed(feed2);
 
-        rssTree.setModel(feedslist);
-        rssTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-
-        rssTree.addTreeSelectionListener(new TreeSelectionListener() {
-            public void valueChanged(TreeSelectionEvent e) {
-                Object nodeInfo = rssTree.getLastSelectedPathComponent();
-                System.out.println(nodeInfo.getClass().getName());
-
-                if (nodeInfo instanceof com.vayan.rss.rssItem) {
-                    oneRssContent.setText(((rssItem) nodeInfo).getContent());
-                }
-            }
-        });
 
 
         ExitButton.addMouseListener(new MouseAdapter() {
