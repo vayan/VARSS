@@ -26,6 +26,11 @@ public class feedsListView implements TreeModel {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
+
     public void addFeed(rssFeed f) {
         rssFeedList.add(f);
     }
@@ -42,7 +47,7 @@ public class feedsListView implements TreeModel {
     @Override
     public Object getChild(Object parent, int index) {
 
-        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getItem(index).getName();
+        if (parent.getClass().getName().equals("com.vayan.rss.rssFeed")) return ((rssFeed)parent).getItem(index);
         if (parent.getClass().getName().equals("com.vayan.rss.feedsListView")) return ((feedsListView)parent).getFeed(index);
         return null;
     }
@@ -57,7 +62,7 @@ public class feedsListView implements TreeModel {
 
     @Override
     public boolean isLeaf(Object node) {
-        return (node instanceof String);
+        return (node instanceof com.vayan.rss.rssItem);
     }
 
     @Override

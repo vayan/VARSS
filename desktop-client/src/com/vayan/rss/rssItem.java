@@ -15,5 +15,9 @@ public class rssItem {
     public String getName() {
         return title;
     }
-    
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
