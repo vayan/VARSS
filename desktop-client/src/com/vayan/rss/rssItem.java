@@ -16,6 +16,10 @@ public class rssItem {
         return title;
     }
 
+    public String getContent() {
+        return content;
+    }
+
     @Override
     public String toString() {
         return getName();

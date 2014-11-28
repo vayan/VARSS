@@ -29,11 +29,11 @@ public class Gui extends JFrame {
 
 
         rssFeed feed1 = new rssFeed("google", "http://google.fr");
-        rssItem item1 = new rssItem("vive la maison", "parce que cest comme ca ");
-        rssItem item2 = new rssItem("vive la boufe", "parce que cest comme ca ");
-        rssItem item3 = new rssItem("vive la canard", "parce que cest comme ca ");
-        rssItem item4 = new rssItem("vive la foo", "parce que cest comme ca ");
-        rssItem item5 = new rssItem("vive la dance", "parce que cest comme ca ");
+        rssItem item1 = new rssItem("vive la maison", "foo bar foo");
+        rssItem item2 = new rssItem("vive la boufe", "sadsdasd ");
+        rssItem item3 = new rssItem("vive la canard", "fgdgdfggdf ");
+        rssItem item4 = new rssItem("vive la foo", "ewrewrewr ");
+        rssItem item5 = new rssItem("vive la dance", "cvbcvbcbcvbcvb ");
         feed1.addItem(item1);
         feed1.addItem(item2);
         feed1.addItem(item3);
@@ -41,11 +41,11 @@ public class Gui extends JFrame {
         feed1.addItem(item5);
 
         rssFeed feed2 = new rssFeed("vayan", "http://vayan.fr");
-        rssItem item11 = new rssItem(" la maison", "parce que cest comme ca ");
-        rssItem item22 = new rssItem("la boufe", "parce que cest comme ca ");
-        rssItem item33 = new rssItem("la canard", "parce que cest comme ca ");
-        rssItem item44 = new rssItem("la foo", "parce que cest comme ca ");
-        rssItem item55 = new rssItem("la dance", "parce que cest comme ca ");
+        rssItem item11 = new rssItem(" la maison", "fdgdfgdfdfga ");
+        rssItem item22 = new rssItem("la boufe", "retertrterteerter");
+        rssItem item33 = new rssItem("la canard", "kjjkkjhjkhjhkhkjkjhkjhkjh ");
+        rssItem item44 = new rssItem("la foo", "vbvbvbvbvbe ca ");
+        rssItem item55 = new rssItem("la dance", "wwwwwwwwwwwe ca ");
         feed2.addItem(item11);
         feed2.addItem(item22);
         feed2.addItem(item33);
@@ -63,6 +63,9 @@ public class Gui extends JFrame {
                 Object nodeInfo = rssTree.getLastSelectedPathComponent();
                 System.out.println(nodeInfo.getClass().getName());
 
+                if (nodeInfo instanceof com.vayan.rss.rssItem) {
+                    oneRssContent.setText(((rssItem) nodeInfo).getContent());
+                }
             }
         });
 
