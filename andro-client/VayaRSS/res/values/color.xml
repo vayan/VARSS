@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>     
+    <color name="black">#000000</color> 
+    <color name="white">#ffffff</color>
+    <color name="gray">#505050</color>
+    <color name="transparence">#00000000</color>
+    <color name="mainColor">#659EBD</color>
+    <color name="darkMainColor">#000000</color>
+    <color name="intermediate">#ffffff</color>
+    <color name="separator_color">#FCC909</color>
+    <color name="bar_indicator">#FCC909</color>
+    <color name="bar_background">#FFFFFF</color>
+    <color name="criteria_background">#FFFFFF</color>
+    <color name="light">#FFFFFF</color>
+    <color name="splash_background">#F1F1F1</color>
+    <color name="yellowFNAIM">#fbe78a</color>
+</resources>
