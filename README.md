@@ -7,7 +7,7 @@ Database : SQLite everywhere
 
 
 * Dorian : Server
-* Carli : Web Client
+* Anatole : Web Client
 * Robin : Android App
 * Yann : Desktop App
 
