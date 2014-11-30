@@ -21,11 +21,6 @@
 		<servlet-class>com.sdzee.servlets.Registration</servlet-class>
 	</servlet>
 	<servlet>
-		<display-name>User_home</display-name>		
-		<servlet-name>User_home</servlet-name>
-		<servlet-class>com.sdzee.servlets.User_home</servlet-class>
-	</servlet>
-	<servlet>
 	<servlet-name>Deconnexion</servlet-name>
 	<servlet-class>com.sdzee.servlets.Deconnexion</servlet-class>
 	</servlet>
@@ -36,11 +31,7 @@
 	<servlet-mapping>
 		<servlet-name>Registration</servlet-name>
 		<url-pattern>/registration</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>User_home</servlet-name>
-		<url-pattern>/home_user</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>	
 	<servlet-mapping>
 	<servlet-name>Deconnexion</servlet-name>
 	<url-pattern>/deconnexion</url-pattern>

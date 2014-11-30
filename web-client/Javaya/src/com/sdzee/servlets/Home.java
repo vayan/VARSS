@@ -20,7 +20,7 @@ public class Home extends HttpServlet {
 	String 				username = request.getParameter("username");
 	String 				password = request.getParameter("password");
 	Map<String, String> error = new HashMap<String, String>();
-	String 				resultat;
+	String 				resultat = null;
 	HttpSession 		session = request.getSession();
 	
 	 try {
@@ -37,7 +37,6 @@ public class Home extends HttpServlet {
 	 
 	 if (error.isEmpty() ) {
 		  resultat = "Succès";
-		  this.getServletContext().getRequestDispatcher("/WEB-INF/home_user.jsp").forward( request, response );  
      } else {
          resultat = "Identifiants incorrects";
 	 }
