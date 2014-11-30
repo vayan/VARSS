@@ -22,9 +22,12 @@
 		<input type="password" id="password" name="password" value="${param.password}" size="20" maxlength="60" />
 		<span class="requis">${error['password']}</span></br>
 		<input type="submit" value="Connexion" class="sansLabel" />
-		<p class="${empty error ? 'succes' : 'requis'}">${resultat}></p>
+		<p class="${empty error ? 'succes' : 'requis'}" >${resultat} <p/>
 	</p>
-	</form>
+	<c:if test="${!empty sessionScope.user_session}">
+		<p class="succes">Vous êtes connecté(e), ${sessionScope.user_session}</p>
+     </c:if>
+     </form>
   	<p><a href="<c:url value="/registration"/>">Créer un compte</a></p>
 </body>
 </html>

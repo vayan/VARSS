@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 public class Home extends HttpServlet {
@@ -16,11 +17,12 @@ public class Home extends HttpServlet {
 	}
 	
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-	String username = request.getParameter("username");
-	String password = request.getParameter("password");
+	String 				username = request.getParameter("username");
+	String 				password = request.getParameter("password");
 	Map<String, String> error = new HashMap<String, String>();
-	String resultat;
-
+	String 				resultat;
+	HttpSession 		session = request.getSession();
+	
 	 try {
          vName(username);
      } catch ( Exception e ) {
@@ -33,14 +35,18 @@ public class Home extends HttpServlet {
          error.put("password", e.getMessage());
      }
 	 
-	 if ( error.isEmpty() ) {
+	 if (error.isEmpty() ) {
 		  resultat = "Succès";
+		  this.getServletContext().getRequestDispatcher("/WEB-INF/home_user.jsp").forward( request, response );  
      } else {
          resultat = "Identifiants incorrects";
 	 }
-	 
+ 
+	 request.setAttribute("username", username);
+	 request.setAttribute("password", password);
 	 request.setAttribute("error", error);
      request.setAttribute("resultat", resultat);
+     session.setAttribute("user_session", username);
 	 this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward( request, response );
 	}
 	
